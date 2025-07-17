@@ -5,5 +5,11 @@ import { Component } from '@angular/core';
   templateUrl: './layout.component.html',
 })
 export class LayoutComponent {
-  isLoading = true
+  isLoading = true;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1500);
+  }
 }
