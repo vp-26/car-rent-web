@@ -1,1 +1,27 @@
-<p>user-list works!</p>
+<p-table *ngIf="!isLoading" [value]="Users" [paginator]="true" [rows]="12" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:7%">User Id</th>
+            <th style="width:15%">Name</th>
+            <th style="width:12%">User Role</th>
+            <th style="width:20%">Email Id</th>
+            <th style="width:15%">Mobile No</th>
+            <th style="width:15%">Password</th>
+            <th style="width:25%">Created On</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-customer>
+        <tr>
+            <td>{{ customer.userId }}</td>
+            <td>{{ customer.name }}</td>
+            <td>
+                <p-tag [value]="customer.userRole" [severity]="getSeverity(customer.userRole)" />
+            </td>
+            <td>{{ customer.emailId }}</td>
+            <td>{{ customer.mobileNo }}</td>
+            <td>{{ customer.password }}</td>
+            <td>{{ customer.createdOn | date:'dd MMM yyyy, hh:mm a' }}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
