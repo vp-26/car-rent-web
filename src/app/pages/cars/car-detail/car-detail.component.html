@@ -1,1 +1,129 @@
-<p>car-detail works!</p>
+<p-splitter layout="horizontal" [panelSizes]="panelSizes" [style]="{ height: '100vh'}" styleClass="custom-splitter">
+    <ng-template pTemplate>
+        <div class="split-panel p-3" style="height: 100%; overflow: hidden;">
+            <p-card header="Filters" styleClass="car-card" [style]="{ position: 'sticky', top: '0' }">
+                <form [formGroup]="CarsForm" class="split-panel p-3" style="height: 100%; overflow: hidden;">
+                    <div class="flex flex-wrap gap-3">
+                        <div class="flex-1 min-w-[50px]">
+                            <label for="location" class="block mb-2">Location</label>
+                            <p-dropdown id="location" formControlName="location" [options]="Location"
+                                optionLabel="title" optionValue="locationId" [appendTo]="'body'"
+                                placeholder="Select Location" class="w-full dropdown" [style]="{'width': '100%'}" />
+                        </div>
+                        <div class="flex align-items-end">
+                            <p-button label="Search" icon="pi pi-search" styleClass="custom-button"
+                                (click)="Search()"></p-button>
+                        </div>
+                    </div>
+                </form>
+            </p-card>
+        </div>
+    </ng-template>
+
+
+    <ng-template pTemplate>
+        <div class="split-panel flex align-items-start" style="overflow-y: auto;">
+            <div class="grid p-3">
+                <ng-container *ngIf="isLoading; else dataLoaded">
+                    <div class="grid p-3">
+                        <p-card [style]="{ width: '100%', height:'100%'}" class="skeleton-card">
+                            <ng-template pTemplate="header">
+                                <p-skeleton height="250px" width="355px" class="w-full border-round"></p-skeleton>
+                            </ng-template>
+                            <p-skeleton width="80%" class="mb-2"></p-skeleton><br />
+                            <p-skeleton width="60%" class="mb-2"></p-skeleton><br />
+                            <p-skeleton width="40%" class="mb-2"></p-skeleton>
+                        </p-card>
+                    </div>
+                </ng-container>
+
+                <ng-template #dataLoaded>
+                    <!-- <div class="col-12 md:col-3" *ngFor="let item of carList">
+                        <p-card [style]="{ width: '100%' }" styleClass="car-card">
+                            <ng-template pTemplate="header">
+                                <img [src]="item.imageUrl" class="w-full border-round img" />
+                            </ng-template>
+                            <span>Category: {{ item.brand }}</span>
+                            <p>{{ item.name }}</p>
+                            <div class="mt-0 font-semibold text-xl">{{ item.locationTitle }}</div>
+                        </p-card>
+                    </div> -->
+                    <div class="col-12 md:col-3" *ngFor="let item of carList">
+                        <p-card [style]="{ width: '100%' }" styleClass="luxury-car-card">
+                            <ng-template pTemplate="header">
+                                <img [src]="item.imageUrl" alt="Car Image" class="car-image" />
+                            </ng-template>
+
+                            <div class="category-badge">
+                                <span class="dot"></span>
+                                <span>{{ item.brand }} Cars</span>
+                            </div>
+
+                            <h3 class="car-title">{{ item.name }}</h3>
+
+                            <div class="car-specs">
+                                <div class="spec-item">
+                                    <i class="pi pi-car"></i>
+                                    <span>Doors</span>
+                                    <strong>{{ item.doors || 4 }}</strong>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="pi pi-users"></i>
+                                    <span>Passengers</span>
+                                    <strong>{{ item.passengers || 4 }}</strong>
+                                </div>
+                            </div>
+
+                            <ng-template pTemplate="footer">
+                                <div class="card-footer">
+                                    <div class="price">
+                                        <span class="price-amount">AED-{{ item.pricingDescription || '4500' }}</span>
+                                    </div>
+                                    <p-button icon="pi pi-arrow-right" styleClass="arrow-button" (onClick)="View(item.carId)"></p-button>
+                                </div>
+                            </ng-template>
+                        </p-card>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </ng-template>
+</p-splitter>
+
+
+
+<!-- <div>
+    <h1>Rent a vehicle from our selection</h1>
+</div>
+
+<div class="grid p-3">
+    <ng-container *ngIf="isLoading; else dataLoaded">
+        <div class="grid p-3">
+            <p-card [style]="{ width: '100%', height:'100%'}" class="skeleton-card">
+                <ng-template pTemplate="header">
+                    <p-skeleton height="250px" width="355px" class="w-full border-round"></p-skeleton>
+                </ng-template>
+                <p-skeleton width="80%" class="mb-2"></p-skeleton>
+                <br>
+                <p-skeleton width="60%" class="mb-2"></p-skeleton>
+                <br>
+                <p-skeleton width="40%" class="mb-2"></p-skeleton>
+            </p-card>
+        </div>
+    </ng-container>
+
+    <ng-template #dataLoaded>
+        <div class="col-12 md:col-3" *ngFor="let item of carList">
+            <p-card [style]="{ width: '100%' }" styleClass="car-card">
+                <ng-template pTemplate="header">
+                    <img [src]="item.imageUrl" class="w-full border-round img" />
+                </ng-template>
+                <span> Category :- {{ item.brand }}</span>
+                <p>{{ item.name }}</p>
+                <div class="mt-0 font-semibold text-xl">
+                    {{ item.locationTitle }}
+                </div>
+            </p-card>
+        </div>
+    </ng-template>
+</div> -->

@@ -1,1 +1,130 @@
-<p>car-form works!</p>
+<div class="flex justify-content-end mb-3 pr-3">
+    <p-button icon="pi pi-plus-circle" label="ADD CAR" (onClick)="showDialog()" styleClass="custom-default" />
+</div>
+
+<div class="grid m-0 p-0" style="overflow-x: hidden;">
+    <div class="col-12 md:col-4" *ngFor="let item of OwnerCarList">
+        <p-card [style]="{ height: '100%' }" class="product-card-custom">
+
+            <ng-template pTemplate="header">
+                <img [src]="item.imageUrl" [alt]="item.name" class="w-full border-round-top"
+                    style="object-fit: cover; height: 250px;" />
+            </ng-template>
+            <div class="p-3 flex flex-column gap-2" style="min-height: 280px;">
+                <div><strong>Brand:</strong> {{ item.brand }}</div>
+                <div><strong>Model:</strong> {{ item.name }}</div>
+                <div><strong>Pricing Description:</strong> {{ item.pricingDescription }}</div>
+                <div><strong>Register Date:</strong> {{ item.registeredOn | date:'mediumDate' }}</div>
+                <div><strong>Location:</strong> {{ item.locationTitle }}</div>
+                <div><strong>Accessories Title :</strong> {{ item.accessoriesTitle }}</div>
+
+                <div class="p-mb-2 flex align-items-center justify-content-between">
+                    <div class="flex gap-2">
+                        <p-button *ngIf="!item.isComplete" label="Update" styleClass="custom-button"
+                            (onClick)="Update(item.carId)">
+                        </p-button>
+
+                        <p-button *ngIf="!item.isComplete" label="Delete" styleClass="custom-default"
+                            (onClick)="Delete(item.carId)">
+                        </p-button>
+                    </div>
+                </div>
+            </div>
+        </p-card>
+    </div>
+</div>
+
+<p-dialog header="{{ isEditMode ? 'Edit Car' : 'Add Car' }}" [(visible)]="visible" [style]="{ width: '720px' }"
+    [modal]="true" [closable]="true" [closeOnEscape]="true">
+    <form [formGroup]="AddCarForm" class="p-fluid grid">
+        <div class="col-12 md:col-6">
+            <label for="brand">Brand Name</label>
+            <input id="brand" type="text" pInputText formControlName="brand" />
+            <small class="p-error" *ngIf="AddCarForm.get('brand')?.invalid && AddCarForm.get('brand')?.touched">
+                Brand is required
+            </small>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <label for="name">Car Name</label>
+            <input id="name" type="text" pInputText formControlName="name" />
+            <small class="p-error" *ngIf="AddCarForm.get('name')?.invalid && AddCarForm.get('name')?.touched">
+                Car Name is required
+            </small>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <label for="pricingDescription">Pricing Description</label>
+            <input id="pricingDescription" type="text" pInputText formControlName="pricingDescription" />
+            <small class="p-error"
+                *ngIf="AddCarForm.get('pricingDescription')?.invalid && AddCarForm.get('pricingDescription')?.touched">
+                Pricing Description is required
+            </small>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <label for="pricing">Price</label>
+            <input id="pricing" type="number" pInputText formControlName="pricing" />
+            <small class="p-error" *ngIf="AddCarForm.get('pricing')?.invalid && AddCarForm.get('pricing')?.touched">
+                Pricing is required
+            </small>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <label for="locationId">Location</label>
+            <p-dropdown id="locationId" formControlName="locationId" [options]="Location" optionLabel="title"
+                optionValue="locationId" placeholder="Select Location" class="w-full"></p-dropdown>
+            <small class="p-error"
+                *ngIf="AddCarForm.get('locationId')?.invalid &&AddCarForm.get('locationId')?.touched ">
+                Location is required
+            </small>
+        </div>
+
+        <div class="col-12 md:col-6">
+            <label for="vehicleNo">Vehicle Number</label>
+            <input id="vehicleNo" type="text" pInputText formControlName="vehicleNo" />
+            <small class="p-error" *ngIf="AddCarForm.get('vehicleNo')?.invalid &&AddCarForm.get('vehicleNo')?.touched">
+                Vehicle Number is required
+            </small>
+        </div>
+        <div class="col-12 md:col-6">
+            <label for="imageUrl">Car Image</label>
+            <p-fileUpload mode="basic" name="imageUrl" [auto]="true" accept="image/*" [chooseLabel]="chooseLabel"
+                chooseIcon="pi pi-upload" class="file-upload-style" maxFileSize="10000000"
+                (onSelect)="FileUpload($event)">
+            </p-fileUpload>
+            <small class="p-error" *ngIf="AddCarForm.get('imageUrl')?.invalid &&AddCarForm.get('imageUrl')?.touched">
+                Car image is required
+            </small>
+        </div>
+
+        <div class="col-12 mt-3">
+            <div class="flex justify-content-between align-items-center mb-2">
+                <h4 class="m-0">Accessories</h4>
+
+                <button pButton type="button" icon="pi pi-plus" (click)="addAccessories()"
+                    class="p-button-rounded p-button-text p-button-sm" style="min-width: 2rem; height: 2rem;"
+                    title="Add Accessory">
+                </button>
+            </div>
+            <div formArrayName="ZoomCarAccessoriess">
+                <div *ngFor="let accessory of accessoriesList.controls; let i = index" [formGroupName]="i"
+                    class="flex gap-2 align-items-center mb-2">
+
+                    <input type="text" pInputText formControlName="accessoriesTitle" placeholder="Accessory Title" />
+                    <p-checkbox formControlName="showOnWebsite" binary="true" label="Show on site"></p-checkbox>
+
+                    <button type="button" pButton icon="pi pi-times" (click)="removeAccessory(i)"
+                        class="p-button-danger p-button-sm"></button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="col-12 text-right mt-4">
+            <p-button [label]="submitButtonLabel" styleClass="custom-button" [disabled]="AddCarForm.invalid"
+                (onClick)="ADDCAR()"></p-button>
+        </div>
+    </form>
+</p-dialog>
