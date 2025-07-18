@@ -5,5 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './service.component.html',
 })
 export class ServiceComponent {
+ panelSizes = [25, 75];
 
+  ngAfterViewInit() {
+    this.panelSizes = [25, 75];
+  }
 }

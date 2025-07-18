@@ -1,1 +1,313 @@
-<p>service works!</p>
+<!-- <p-splitter layout="horizontal" [panelSizes]="panelSizes" [style]="{ height: '100vh' }" styleClass="custom-splitter">
+    <ng-template pTemplate="panel1">
+        <aside class="split-panel sidebar p-4">
+            <p-card header="Our Services" styleClass="sidebar-card mb-6">
+                <ul class="services-list text-white text-sm">
+                    <li tabindex="0" role="button" aria-label="Car Rental With Driver"
+                        class="service-item mb-3 flex justify-between border-b border-gray-700 pb-2 cursor-pointer hover:text-yellow-400 focus:text-yellow-400 focus:outline-none">
+                        Car Rental With Driver <span aria-hidden="true">↗</span>
+                    </li>
+                    <li tabindex="0" role="button" aria-label="Business Car Rental"
+                        class="service-item mb-3 flex justify-between border-b border-gray-700 pb-2 cursor-pointer hover:text-yellow-400 focus:text-yellow-400 focus:outline-none">
+                        Business Car Rental <span aria-hidden="true">↗</span>
+                    </li>
+                    <li tabindex="0" role="button" aria-label="Wedding Car Rental"
+                        class="service-item mb-3 flex justify-between border-b border-gray-700 pb-2 cursor-pointer hover:text-yellow-400 focus:text-yellow-400 focus:outline-none">
+                        Wedding Car Rental <span aria-hidden="true">↗</span>
+                    </li>
+                    <li tabindex="0" role="button" aria-label="Airport Transfer"
+                        class="service-item mb-3 flex justify-between border-b border-gray-700 pb-2 cursor-pointer hover:text-yellow-400 focus:text-yellow-400 focus:outline-none">
+                        Airport Transfer <span aria-hidden="true">↗</span>
+                    </li>
+                    <li tabindex="0" role="button" aria-label="Chauffeur Services"
+                        class="service-item flex justify-between cursor-pointer hover:text-yellow-400 focus:text-yellow-400 focus:outline-none">
+                        Chauffeur Services <span aria-hidden="true">↗</span>
+                    </li>
+                </ul>
+            </p-card>
+
+            <p-card styleClass="sidebar-card">
+                <div class="help-section text-center text-white">
+                    <i class="pi pi-question-circle text-4xl text-orange-500 mb-3" aria-hidden="true"></i>
+                    <h3 class="mb-2 font-semibold">Need help?</h3>
+                    <p class="text-sm text-gray-400 mb-4 leading-relaxed max-w-xs mx-auto">
+                        We strive to provide exceptional customer service and support. Whether you have questions, we’re
+                        here to help.
+                    </p>
+                    <div class="flex justify-center gap-3">
+                        <button pButton type="button" label="Contact Us"
+                            class="p-button-warning p-button-sm font-semibold min-w-[100px]"
+                            aria-label="Contact Us"></button>
+                        <button pButton type="button" label="WhatsApp Us"
+                            class="p-button-secondary p-button-sm font-semibold min-w-[100px]"
+                            aria-label="WhatsApp Us"></button>
+                    </div>
+                </div>
+            </p-card>
+        </aside>
+    </ng-template>
+
+    <ng-template pTemplate="panel2">
+        <main class="split-panel airport-transfer-section bg-black text-white p-6 overflow-y-auto">
+            <img src="assets/images/service-page.png" alt="Airport Transfer Cars"
+                class="hero-image w-full rounded-b-2xl object-cover max-h-[360px]" loading="lazy" />
+
+            <section class="content max-w-6xl mx-auto px-0 md:px-12 py-12">
+                <h2 class="text-4xl font-extrabold leading-tight mb-6">
+                    Discover premium airport <span class="highlight text-yellow-400">transfer</span> service
+                </h2>
+                <p class="text-gray-400 text-base mb-8 leading-relaxed">
+                    Forget the hassle of waiting for taxis or navigating crowded transportation. Our airport transfer
+                    service ensures you travel in style, comfort, and complete peace of mind.
+                    Start your journey with a seamless, luxurious, and stress-free ride from the airport with our
+                    premium airport transfer service in Dubai.
+                    At Legendary Car Rental, we provide the best luxury car rental Dubai.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 text-sm font-semibold mb-12">
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> FREE
+                        Delivery and Pickup</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Insurance
+                        Included</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Rent Now Pay
+                        When You Arrive</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Lowest Rates
+                    </div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> 24/7 Pickup
+                        & Return</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Multiple
+                        Drop-Off Locations</div>
+                </div>
+
+                <hr class="border-gray-700 mb-12" />
+
+                <div class="testimonial-header">
+                    <p class="text-yellow-400 text-sm font-medium mb-3 flex items-center gap-2">
+                        <i class="pi pi-globe" aria-hidden="true"></i> Testimonials
+                    </p>
+                    <h2 class="text-3xl font-bold leading-snug">What our customers are saying about us</h2>
+                </div>
+            </section>
+
+            <section class="faq-section bg-black px-6 md:px-12 pb-16 max-w-6xl mx-auto text-white"
+                aria-label="Frequently Asked Questions">
+                <div class="mb-8">
+                    <p class="text-yellow-400 text-sm font-medium flex items-center gap-2" aria-hidden="true">
+                        <i class="pi pi-globe"></i> Frequently Asked Questions
+                    </p>
+                    <h2 class="text-2xl font-bold mt-1">You need to know about service</h2>
+                </div>
+
+                <p-accordion [activeIndex]="-1" styleClass="custom-accordion">
+                    <p-accordionTab header="Does any mileage limit apply while renting a car in Dubai?">
+                        <p>
+                            Yes, all the luxury car rentals in Dubai apply a mileage limit of 250 km per day. However,
+                            if you have a more extended travel plan, you can ask us to increase the limit by paying
+                            extra charges.
+                            We can customize the plan, for example, by renting hours and mileage according to your
+                            requirements.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Can I park a luxury car for rent in Dubai anywhere?">
+                        <p>
+                            You can park your rental car at specific spots designated for rentals, ranging from roadside
+                            to underground parking.
+                            You are responsible for any parking fines incurred during the rental.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How much is it to rent a luxury car in Dubai?">
+                        <p>
+                            The average cost of luxury car rental in Dubai depends on brand, model, and duration.
+                            Prices range from AED 300 to AED 10,000 at Legendary Car Rental, depending on your
+                            preferences.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How can I book a luxury car rental company in Dubai?">
+                        <p>
+                            Legendary Car Rental in Dubai offers a vast fleet of high-end cars for rent.
+                            You can book directly through our website or contact our team. Booking is fast, simple, and
+                            reliable.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Is renting a luxury car in Dubai with a visit visa allowed?">
+                        <p>Yes, but you'll need:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>A valid local or international driving license</li>
+                            <li>Security deposit (as applicable)</li>
+                            <li>Minimum age of 21</li>
+                            <li>Insurance (optional but recommended)</li>
+                        </ul>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How to book a luxury car rental in Dubai with Legendary?">
+                        <p>
+                            Simply browse our website, choose your preferred car, and complete the booking form.
+                            Alternatively, contact us directly to confirm availability and finalize your reservation.
+                        </p>
+                    </p-accordionTab>
+                </p-accordion>
+            </section>
+        </main>
+    </ng-template>
+</p-splitter> -->
+
+
+
+<p-splitter layout="horizontal" [panelSizes]="panelSizes" [style]="{ height: '100vh' }" styleClass="custom-splitter">
+    <ng-template pTemplate="panel1">
+        <aside class="split-panel sidebar p-4">
+            <p-card header="Our Services" styleClass="sidebar-card mb-6">
+                <ul class="services-list text-white text-sm space-y-2">
+                    <li tabindex="0" role="button" aria-label="Car Rental With Driver" class="service-item group">
+                        <span>Car Rental With Driver</span>
+                        <span class="arrow">↗</span>
+                    </li>
+
+                    <li tabindex="0" role="button" aria-label="Business Car Rental" class="service-item group">
+                        <span>Business Car Rental</span>
+                        <span class="arrow">↗</span>
+                    </li>
+
+                    <li tabindex="0" role="button" aria-label="Wedding Car Rental" class="service-item group">
+                        <span>Wedding Car Rental</span>
+                        <span class="arrow">↗</span>
+                    </li>
+
+                    <li tabindex="0" role="button" aria-label="Airport Transfer" class="service-item group">
+                        <span>Airport Transfer</span>
+                        <span class="arrow">↗</span>
+                    </li>
+
+                    <li tabindex="0" role="button" aria-label="Chauffeur Services" class="service-item group">
+                        <span>Chauffeur Services</span>
+                        <span class="arrow">↗</span>
+                    </li>
+                </ul>
+            </p-card>
+
+            <p-card styleClass="sidebar-card">
+                <div class="help-section text-center text-white">
+                    <i class="pi pi-question-circle text-7xl text-orange-500 mb-3" aria-hidden="true"></i>
+                    <h3 class="mb-2 font-semibold">Need help?</h3>
+                    <p class="text-sm text-gray-400 mb-4 leading-relaxed max-w-xs mx-auto">
+                        We strive to provide exceptional customer service and support. Whether you have questions, we’re
+                        here to help.
+                    </p>
+                    <p-button label="Contact Us" icon="pi pi-phone" styleClass="custom-button"></p-button>
+                </div>
+            </p-card>
+        </aside>
+    </ng-template>
+
+    <ng-template pTemplate="panel2">
+        <main class="split-panel airport-transfer-section text-white p-6 overflow-y-auto"
+            style="background-color: transparent;">
+            <img src="assets/images/service-page.png" alt="Airport Transfer Cars"
+                class="hero-image w-full rounded-b-2xl object-cover max-h-[360px]" loading="lazy" />
+
+            <section class="content max-w-6xl mx-auto px-0 md:px-12 py-12">
+                <h2 class="text-4xl font-extrabold leading-tight mb-6">
+                    Discover premium airport <span class="highlight text-yellow-400">transfer</span> service
+                </h2>
+                <p class="text-gray-400 text-base mb-8 leading-relaxed">
+                    Forget the hassle of waiting for taxis or navigating crowded transportation. Our airport transfer
+                    service ensures you travel in style, comfort, and complete peace of mind.
+                    Start your journey with a seamless, luxurious, and stress-free ride from the airport with our
+                    premium airport transfer service in Dubai.
+                    At Legendary Car Rental, we provide the best luxury car rental Dubai.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-6 text-sm font-semibold mb-12">
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> FREE
+                        Delivery and Pickup</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Insurance
+                        Included</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Rent Now Pay
+                        When You Arrive</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Lowest Rates
+                    </div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> 24/7 Pickup
+                        & Return</div>
+                    <div class="flex items-center gap-3"><i class="pi pi-check-circle text-yellow-400"></i> Multiple
+                        Drop-Off Locations</div>
+                </div>
+
+                <hr class="border-gray-700 mb-12" />
+
+                <div class="testimonial-header">
+                    <p class="text-yellow-400 text-sm font-medium mb-3 flex items-center gap-2">
+                        <i class="pi pi-globe" aria-hidden="true"></i> Testimonials
+                    </p>
+                    <h2 class="text-3xl font-bold leading-snug">What our customers are saying about us</h2>
+                </div>
+            </section>
+
+            <section class="faq-section px-6 md:px-12 pb-16 max-w-6xl mx-auto text-white"
+                aria-label="Frequently Asked Questions">
+                <div class="mb-8">
+                    <p class="text-yellow-400 text-sm font-medium flex items-center gap-2" aria-hidden="true">
+                        <i class="pi pi-globe"></i> Frequently Asked Questions
+                    </p>
+                    <h2 class="text-2xl font-bold mt-1">You need to know about service</h2>
+                </div>
+
+                <p-accordion [activeIndex]="-1" styleClass="custom-accordion">
+                    <p-accordionTab header="Does any mileage limit apply while renting a car in Dubai?">
+                        <p>
+                            Yes, all the luxury car rentals in Dubai apply a mileage limit of 250 km per day. However,
+                            if you have a more extended travel plan, you can ask us to increase the limit by paying
+                            extra charges.
+                            We can customize the plan, for example, by renting hours and mileage according to your
+                            requirements.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Can I park a luxury car for rent in Dubai anywhere?">
+                        <p>
+                            You can park your rental car at specific spots designated for rentals, ranging from roadside
+                            to underground parking.
+                            You are responsible for any parking fines incurred during the rental.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How much is it to rent a luxury car in Dubai?">
+                        <p>
+                            The average cost of luxury car rental in Dubai depends on brand, model, and duration.
+                            Prices range from AED 300 to AED 10,000 at Legendary Car Rental, depending on your
+                            preferences.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How can I book a luxury car rental company in Dubai?">
+                        <p>
+                            Legendary Car Rental in Dubai offers a vast fleet of high-end cars for rent.
+                            You can book directly through our website or contact our team. Booking is fast, simple, and
+                            reliable.
+                        </p>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="Is renting a luxury car in Dubai with a visit visa allowed?">
+                        <p>Yes, but you'll need:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>A valid local or international driving license</li>
+                            <li>Security deposit (as applicable)</li>
+                            <li>Minimum age of 21</li>
+                            <li>Insurance (optional but recommended)</li>
+                        </ul>
+                    </p-accordionTab>
+
+                    <p-accordionTab header="How to book a luxury car rental in Dubai with Legendary?">
+                        <p>
+                            Simply browse our website, choose your preferred car, and complete the booking form.
+                            Alternatively, contact us directly to confirm availability and finalize your reservation.
+                        </p>
+                    </p-accordionTab>
+                </p-accordion>
+            </section>
+        </main>
+    </ng-template>
+</p-splitter>
